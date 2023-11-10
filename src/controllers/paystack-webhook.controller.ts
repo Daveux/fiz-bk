@@ -16,7 +16,7 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
     .createHmac("sha512", paystackConfig.secretKey as string)
     .update(JSON.stringify(body))
     .digest("hex");
-  // if (hash === req.headers["x-paystack-signature"]) {
+  if (hash === req.headers["x-paystack-signature"]) {
 
     const paymentEvent = body.event;
 
@@ -71,7 +71,7 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
             return successResponse(res, 200, "Successfully processed webhook");
         }
     }
-    // }
+    }
     logger.info(formatLog(req, "END: Paystack Webook Service "));
     return successResponse(res, 200, "Successfully processed webhook");
 });
