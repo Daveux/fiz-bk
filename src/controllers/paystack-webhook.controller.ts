@@ -20,8 +20,8 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
 
     const paymentEvent = body.event;
 
-    const { referrer } = body.data.metadata;
-    const { email } = body.data.customer
+    const referrer  = body.data?.metadata?.referrer;
+    const email  = body.data?.customer?.email
 
     let transaction;
 
