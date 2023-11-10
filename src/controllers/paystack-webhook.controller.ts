@@ -37,7 +37,7 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
             "Please kindly find your copy of the book attached below \n \n" +
             "Signed\n" +
             "Taiwo Fisola\n" +
-            "Director At Fizzlezbooks"
+            "Director, Fizzlesbook"
         if (referrer === bibleStudyRef) {
             sendMail({
                 to: email,
