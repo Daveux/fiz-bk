@@ -5,7 +5,7 @@
   "main": "src/main.ts",
   "scripts": {
     "start": "node dist/main.js",
-    "build": "tsc",
+    "build": "npm i && tsc",
     "start:dev": "ts-node-dev --respawn --transpile-only ./src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
