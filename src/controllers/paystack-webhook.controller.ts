@@ -41,7 +41,7 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
         if (referrer === bibleStudyRef) {
             sendMail({
                 to: email,
-                from: `Fizzlez Books<${fromEmail}>`,
+                from: `Fizzles Book<${fromEmail}>`,
                 subject: 'Congratulations on your Purchase!',
                 text: EMAIL_TEXT,
                 attachments: [{
