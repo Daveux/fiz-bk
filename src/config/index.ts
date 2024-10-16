@@ -16,6 +16,8 @@ export const bibleStudyRef = process.env.BIBLE_STUDY_REF || "";
 
 export const echoesOfHopeRef = process.env.ECHOES_OF_HOPE_REF || "";
 
+export const trialsOfUsRef = process.env.TRIALS_OF_US_REF || "";
+
 export const bibleStudyLink = process.env.BIBLE_STUDY_LINK || "";
 
 export const echoesOfHopeLink = process.env.ECHOES_OF_HOPE_LINK || "";

@@ -6,7 +6,7 @@ import sendMail from "../utils/mail";
 import { successResponse } from "../utils/responses";
 import asyncHandler from "../middleware/async";
 
-import {paystackConfig, bibleStudyLink, bibleStudyRef, echoesOfHopeLink, echoesOfHopeRef, fromEmail} from "../config";
+import {paystackConfig, bibleStudyLink, bibleStudyRef, echoesOfHopeLink, echoesOfHopeRef, trialsOfUsRef, fromEmail} from "../config";
 
 const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
 
@@ -70,6 +70,22 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
             logger.info(formatLog(req, "END: Paystack Webhook Service "));
             return successResponse(res, 200, "Successfully processed webhook");
         }
+      if (referrer === trialsOfUsRef) {
+        sendMail({
+          to: email,
+          from: `Fizzle Books<${fromEmail}>`,
+          subject: 'Congratulations on your Purchase!',
+          text: EMAIL_TEXT,
+          attachments: [{
+            content: String.raw`${__dirname}/../../files/trials-of-us.pdf`,
+            filename: "Echoes of Hope.pdf",
+            type: "application/pdf",
+            disposition: "attachment"
+          }]
+        });
+        logger.info(formatLog(req, "END: Paystack Webhook Service "));
+        return successResponse(res, 200, "Successfully processed webhook");
+      }
     }
     }
     logger.info(formatLog(req, "END: Paystack Webook Service "));
