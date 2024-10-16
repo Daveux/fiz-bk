@@ -78,7 +78,7 @@ const paystackWebhook = asyncHandler(async (req: Request, res: Response) => {
           text: EMAIL_TEXT,
           attachments: [{
             content: String.raw`${__dirname}/../../files/trials-of-us.pdf`,
-            filename: "Echoes of Hope.pdf",
+            filename: "Trials Of Us.pdf",
             type: "application/pdf",
             disposition: "attachment"
           }]
